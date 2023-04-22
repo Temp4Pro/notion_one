@@ -64,6 +64,36 @@
 
 
 <script>
+    
+    // Создаем объект для даты сегодняшнего дня
+const today = new Date();
+
+// Получаем день недели (воскресенье = 0, понедельник = 1, и т.д.)
+const dayOfWeek = today.getDay();
+
+// Вычисляем количество дней до следующего четверга
+const daysUntilThursday = (dayOfWeek <= 3) ? (3 - dayOfWeek) : (10 - dayOfWeek);
+
+// Устанавливаем дату следующего четверга
+const nextThursday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysUntilThursday);
+
+// Устанавливаем время на следующий четверг в 19:50
+nextThursday.setHours(19, 50, 0);
+
+// Получаем разницу в миллисекундах между текущей датой и следующим четвергом
+const timeDiff = nextThursday.getTime() - today.getTime();
+
+// Получаем количество дней, часов и минут
+const ddays = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+const hhours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const mminutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+
+// Выводим результат
+//console.log(`До следующего четверга в 19:50 осталось ${days} дней, ${hours} часов и ${minutes} минут.`);
+
+    
+    
+    
     function CountDownTimer  () {
     left_days = document.getElementById("days");
     left_hours = document.getElementById("hours");
@@ -74,12 +104,14 @@
     now = new Date();
     // days_in_this_month = new Date( now.getFullYear(), now.getMonth()+1, 0).getDate(); 
     // week starts on sunday
+        
+        
     days = 4 - now.getDay();
     hours = 19 - now.getHours();
     minutes = 50 - now.getMinutes();
-    left_days.innerHTML = days + "<br> <span class=\"small\"> д </span>"
-    left_hours.innerHTML = hours + "<br> <span class=\"small\"> ч</span>";
-    left_minutes.innerHTML = minutes + "<br> <span class=\"small\"> м</span>";
+    left_days.innerHTML = ddays + "<br> <span class=\"small\"> д </span>"
+    left_hours.innerHTML = hhours + "<br> <span class=\"small\"> ч</span>";
+    left_minutes.innerHTML = mminutes + "<br> <span class=\"small\"> м</span>";
     }
 
 timer = setInterval (showRemaining, 1000) 
