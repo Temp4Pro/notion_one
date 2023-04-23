@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
-    <title>Time Left this week</title>
+    <title>Time Left to the weekly event</title>
     <style>
         
         body{
@@ -64,36 +64,7 @@
 
 
 <script>
-    
-    // Создаем объект для даты сегодняшнего дня
-//const today = new Date();
-
-// Получаем день недели (воскресенье = 0, понедельник = 1, и т.д.)
-//const dayOfWeek = today.getDay();
-
-// Вычисляем количество дней до следующего четверга
-//const daysUntilThursday = (dayOfWeek <= 4) ? (4 - dayOfWeek) : (10 - dayOfWeek);
-
-// Устанавливаем дату следующего четверга
-//const nextThursday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysUntilThursday);
-
-// Устанавливаем время на следующий четверг в 19:50
-//nextThursday.setHours(19, 50, 0);
-
-// Получаем разницу в миллисекундах между текущей датой и следующим четвергом
-/const timeDiff = nextThursday.getTime() - today.getTime();
-
-// Получаем количество дней, часов и минут
-//const ddays = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-//const hhours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//const mminutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-
-// Выводим результат
-//console.log(`До следующего четверга в 19:50 осталось ${days} дней, ${hours} часов и ${minutes} минут.`);
-
-    
-    
-    
+  
     function CountDownTimer  () {
     left_days = document.getElementById("days");
     left_hours = document.getElementById("hours");
