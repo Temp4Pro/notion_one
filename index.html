@@ -61,6 +61,10 @@
         <h2 class="box" id="days"></h2>
         <h2 class="box" id="hours"></h2>
         <h2 class="box" id="minutes"></h2>
+        <h2 class="box" id="vtp"></h2>
+        <h2 class="box" id="vcp"></h2>
+        <h2 class="box" id="vrp"></h2>
+        
     </div>
 
 
@@ -71,6 +75,9 @@
     left_days = document.getElementById("days");
     left_hours = document.getElementById("hours");
     left_minutes = document.getElementById("minutes");
+    left_vtp = document.getElementById("vtp");
+    left_vcp = document.getElementById("vcp");
+    left_vrp = document.getElementById("vrp");
  
     }
     function showRemaining (){
@@ -95,12 +102,15 @@
             
    
     minutes = vr % 60; 
-    hours = (vr-minutes)/60 % 24;
-    days = (vr-minutes-hours*60)/60/24;
+    hours = ((vr-minutes)/60) % 24;
+    days = ((vr-minutes-hours*60)/60/24;
         
     left_days.innerHTML = days + "<br> <span class=\"small\"> д </span>"
     left_hours.innerHTML = hours + "<br> <span class=\"small\"> ч</span>";
     left_minutes.innerHTML = minutes + "<br> <span class=\"small\"> м</span>";
+    left_vtp.innerHTML = vt + "<br> <span class=\"small\"> vt</span>";
+    left_vcp.innerHTML = vc + "<br> <span class=\"small\"> vc</span>";
+    left_vrp.innerHTML = vr + "<br> <span class=\"small\"> vr</span>";
     }
 
 timer = setInterval (showRemaining, 1000) 
