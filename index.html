@@ -76,8 +76,6 @@
     }
     function showRemaining (){
     now = new Date();
-    // days_in_this_month = new Date( now.getFullYear(), now.getMonth()+1, 0).getDate(); 
-    // week starts on sunday
         
     vt = (now.getDay()*24+now.getHours())*60+now.getMinutes();
 
@@ -91,7 +89,7 @@
             }
         else {
             vr=(7*24*60)+vc-vt;
-        };
+        }
            
             
    
@@ -106,7 +104,7 @@
 
     }
 
-timer = setInterval (showRemaining, 1000) 
+timer = setInterval (showRemaining, 1000);
 CountDownTimer() ;
 </script>
 </body>
