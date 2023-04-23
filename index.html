@@ -95,8 +95,8 @@
             
    
     minutes = vr % 60; 
-    hours = (vr-minutes) % (24*60);
-    days = (vr-minutes-hours*60) / (24*60);
+    hours = (vr-minutes)/60 % 24;
+    days = (vr-minutes-hours*60)/60/24;
         
     left_days.innerHTML = days + "<br> <span class=\"small\"> д </span>"
     left_hours.innerHTML = hours + "<br> <span class=\"small\"> ч</span>";
