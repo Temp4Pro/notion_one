@@ -106,7 +106,12 @@
     // week starts on sunday
         
     vt = (now.getDay()*24+now.getHours())*60+now.getMinutes();
-    vc = (4*24+19)*60+50;
+
+    dc = 4;  //четверг
+    hc = 19; //19 часов
+    mc = 50; //50 минут
+        
+    vc = (dc*24+hc)*60+mc;
     if (vt<=vc) {
         vr=vc-vt;
             }
