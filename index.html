@@ -67,6 +67,26 @@
 
 
 <script>
+
+
+    // Массив дат и времени встреч
+const meetings = [
+  new Date('2023-04-27T19:50:00'),  // Встреча 1
+  new Date('2023-05-11T19:50:00'),  // Встреча 1
+  new Date('2023-05-18T19:50:00'),  // Встреча 1
+  new Date('2023-06-01T19:50:00'),  // Встреча 1
+  new Date('2023-06-15T19:50:00'),  // Встреча 1
+  new Date('2023-06-22T19:50:00'),  // Встреча 1
+  new Date('2023-06-29T19:50:00'),  // Встреча 1
+  new Date('2023-07-06T19:50:00'),  // Встреча 1
+  new Date('2023-07-13T19:50:00'),  // Встреча 1
+  new Date('2023-07-27T19:50:00'),  // Встреча 1
+  new Date('2023-09-07T19:50:00'),  // Встреча 1
+  new Date('2023-09-14T19:50:00'),  // Встреча 1
+  new Date('2023-09-21T19:50:00'),  // Встреча 1
+  new Date('2023-09-28T19:50:00'),  // Встреча 1
+  new Date('2023-10-05T19:50:00'),  // Встреча 1
+];
   
     function CountDownTimer  () {
     left_days = document.getElementById("days");
@@ -74,6 +94,7 @@
     left_minutes = document.getElementById("minutes");
  
     }
+
     function showRemaining (){
     now = new Date();
         
@@ -104,8 +125,46 @@
 
     }
 
-timer = setInterval (showRemaining, 1000);
+    function showRemaining2 (){
+// Получаем текущую дату и время
+const today = new Date();
+
+// Фильтруем встречи, оставляем только те, которые наступят в будущем
+const futureMeetings = meetings.filter(meeting => meeting > today);
+
+// Если нет будущих встреч
+if (futureMeetings.length === 0) {
+//  const days = "X";
+//  const hours = "Y";
+//  const minutes = "Z";
+
+} else {
+  // Сортируем будущие встречи по возрастанию даты и времени
+  futureMeetings.sort((a, b) => a - b);
+
+  // Получаем ближайшую встречу
+  const nextMeeting = futureMeetings[0];
+
+  // Вычисляем разницу в миллисекундах между текущей датой и временем следующей встречи
+  const timeDiff = nextMeeting.getTime() - today.getTime();
+
+  // Получаем количество дней, часов и минут
+  days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  }
+
+  // Выводим результат
+    left_days.innerHTML = days + "<br> <span class=\"small\"> д</span>";
+    left_hours.innerHTML = hours + "<br> <span class=\"small\"> ч</span>";
+    left_minutes.innerHTML = minutes + "<br> <span class=\"small\"> м</span>";
+
+}
+
+
+timer = setInterval (showRemaining2, 1000);
 CountDownTimer() ;
+
 </script>
 </body>
 </html>
